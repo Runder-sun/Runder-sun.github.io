@@ -3,7 +3,7 @@
 title: 赵阳
 
 # Name pronunciation (optional)
-name_pronunciation: Yang Zhao
+name_pronunciation: Zhao Yang
 
 # Full name (for SEO)
 first_name: Yang
