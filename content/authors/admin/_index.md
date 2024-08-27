@@ -20,7 +20,7 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Ph.D
+role: Ph.D Student
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
@@ -42,18 +42,14 @@ profiles:
 
 interests:
   - Virtual Reality
-  - AIGC
-  - LLMs
+  - AI-Generated Content
+  - Large Language Models
 
 education:
-  - area: Ph.D in Computer Science
-    date: 2023 - 202X
+  - area: Ph.D in Computer Science,2023 - 202X
     institution: Shanghai Jiao Tong University
-  - area: B.S. in Software Engineering, 
-    date: 2019 - 2023
+  - area: B.S. in Software Engineering,2019 - 2023
     institution: Beihang University
-work:
-
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -131,4 +127,4 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hi👋, welcome to visit my academic website! I'm a Ph.D student from the Digital Art Laboratory at Shanghai Jiao Tong University. My research is driven by a passion for exploring the frontiers of digital art and technology. I focus primarily on Virtual Reality (VR), AI-Generated Content (AIGC), and Large Language Models (LLMs).
