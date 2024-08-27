@@ -48,12 +48,12 @@ interests:
 education:
   - area: Ph.D in Computer Science
     institution: Shanghai Jiao Tong University
-    date start: 2023
-    date end: 2028
+    date_start: 2023
+    date_end: 2028
   - area: B.S. in Software Engineering
     institution: Beihang University
-    date start: 2019
-    date end: 2023
+    date_start: 2019
+    date_end: 2023
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
