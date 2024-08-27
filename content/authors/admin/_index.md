@@ -33,7 +33,7 @@ organizations:
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:runder1103@sjtu.edu.cn'
     label: E-mail Me
   - icon: brands/github
     url: https://github.com/Runder-sun
@@ -46,14 +46,10 @@ interests:
   - LLMs
 
 education:
-  - area: Ph.D in Computer Science
+  - area: Ph.D in Computer Science, 2023 - 202X
     institution: Shanghai Jiao Tong University
-    date_start: 2023
-    date_end: 202X
-  - area: B.S. in Software Engineering
+  - area: B.S. in Software Engineering, 2019 - 2023
     institution: Beihang University
-    date_start: 2019
-    date_end: 2023
 work:
   - position: Director of Cloud Infrastructure
     company_name: GenCoin
