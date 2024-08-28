@@ -14,6 +14,18 @@ sections:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: admin
       text: ""
+    design:
+      css_class: dark
+      background:
+        color: black
+        image:
+          # Add your image background to `assets/media/`.
+          filename: bg.jpg
+          filters:
+            brightness: 0.6
+          size: cover
+          position: center
+          parallax: false
       # Show a call-to-action button under your biography? (optional)
   - block: collection
     content:
