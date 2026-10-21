@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e9">
+  <meta name="description" content="赵阳 Yang Zhao，上海交通大学计算机学院直博四年级，导师杨旭波。本科毕业于北京航空航天大学沈元学院。研究方向包括空间智能、三维场景生成、可控人体动作生成与具身导航。">
+  <meta property="og:title" content="赵阳 Yang Zhao · Academic Homepage">
+  <meta property="og:description" content="Spatial intelligence, 3D scene generation, controllable human motion, and embodied navigation. Shanghai Jiao Tong University.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://runder-sun.github.io/">
+  <link rel="canonical" href="https://runder-sun.github.io/">
+  <title>赵阳 Yang Zhao · 学术主页</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="theme.js?v=20261015"></script>
+  <link rel="stylesheet" href="styles.css?v=education-groups-20261015">
+  <script src="script.js" defer></script>
+  <script src="spatial-scene.js?v=paper-detail-20261015" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#about" aria-label="赵阳，返回首页" data-label-zh="赵阳，返回首页" data-label-en="Yang Zhao, back to home"><span data-zh="赵阳" data-en="Yang Zhao">赵阳</span><span class="wordmark-detail">SJTU</span></a>
+      <nav aria-label="主导航">
+        <a href="#about" class="active" data-zh="关于" data-en="About">关于</a>
+        <a href="#research" data-zh="研究" data-en="Research">研究</a>
+        <a href="#experience" data-zh="经历" data-en="Experience">经历</a>
+        <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
+      </nav>
+      <button class="language-toggle" type="button" aria-label="Switch to English">EN <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero content-width" id="about" aria-labelledby="name">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="profile-mark" aria-hidden="true"></span> <span data-zh="空间智能 · 研究与探索" data-en="SPATIAL INTELLIGENCE · RESEARCH & EXPLORATION">空间智能 · 研究与探索</span></p>
+        <h1 id="name">Yang Zhao<span class="chinese-name">赵阳</span></h1>
+        <p class="affiliation" data-zh="上海交通大学计算机学院 · 直博四年级" data-en="Fourth-year Ph.D. student · School of Computer Science, Shanghai Jiao Tong University">上海交通大学计算机学院 · 直博四年级</p>
+        <p class="profile-detail"><span data-zh="导师：" data-en="Advisor: ">导师：</span><a href="https://www.cs.sjtu.edu.cn/en/jiaoshiml/yangxubo.html" target="_blank" rel="noopener noreferrer" data-zh="杨旭波" data-en="Xubo Yang">杨旭波</a><span class="profile-separator" aria-hidden="true">·</span><a href="http://dalab.se.sjtu.edu.cn/www/home/" target="_blank" rel="noopener noreferrer" data-zh="数字艺术实验室（DALAB）" data-en="Digital ART Laboratory (DALAB)">数字艺术实验室（DALAB）</a></p>
+        <h2 class="hero-statement" data-zh="研究空间中的\n生成、理解与行动。" data-en="Generation, understanding,\nand action in 3D spaces.">研究空间中的<br>生成、理解与行动。</h2>
+        <p class="hero-description" data-zh="我的研究围绕三维场景生成、可控人体动作生成与具身导航展开，探索模型如何构建三维世界、理解空间，并将感知转化为行动。" data-en="My research spans 3D scene generation, controllable human motion, and embodied navigation. I explore how models build 3D worlds, understand space, and translate perception into action.">我的研究围绕三维场景生成、可控人体动作生成与具身导航展开，探索模型如何构建三维世界、理解空间，并将感知转化为行动。</p>
+        <div class="hero-links">
+          <a class="button primary-button" href="#research"><span data-zh="阅读论文" data-en="Publications">阅读论文</span><span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="https://github.com/Runder-sun" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="text-link" href="mailto:runder1103@sjtu.edu.cn"><span data-zh="邮件联系" data-en="Email">邮件联系</span></a>
+        </div>
+      </div>
+      <figure class="hero-visual" aria-label="可交互的研究方向概念示意图" data-label-zh="可交互的研究方向概念示意图" data-label-en="Interactive conceptual illustration of my research interests">
+        <div class="figure-top"><span data-zh="研究手记" data-en="RESEARCH NOTES">研究手记</span><span>FIG. 01</span></div>
+        <canvas id="spatial-canvas" width="480" height="360" tabindex="0" aria-describedby="scene-hint" aria-label="可拖动旋转的三维房间与人体路径动画" data-label-zh="可拖动旋转的三维房间与人体路径动画" data-label-en="A draggable 3D room with an animated human following a path"><img src="assets/research-map.svg" alt="房间结构、人体姿态与行动路径组成的研究概念线稿" data-label-zh="房间结构、人体姿态与行动路径组成的研究概念线稿" data-label-en="A conceptual line drawing of a room, a human pose, and an action path" width="480" height="400"></canvas>
+        <div class="scene-controls"><button id="scene-toggle" type="button" aria-pressed="true" data-zh="暂停动画" data-en="Pause">暂停动画</button><button id="scene-reset" type="button" data-zh="重置视角" data-en="Reset view">重置视角</button></div>
+        <p id="scene-hint" data-zh="拖动旋转 · 方向键调整视角" data-en="Drag to orbit · Arrow keys to rotate">拖动旋转 · 方向键调整视角</p>
+        <figcaption><span data-zh="场景 · 动作 · 导航" data-en="SCENES · MOTION · NAVIGATION">场景 · 动作 · 导航</span><span data-zh="概念示意" data-en="CONCEPT SKETCH">概念示意</span></figcaption>
+      </figure>
+    </section>
+
+    <div class="research-interests content-width" aria-label="研究方向" data-label-zh="研究方向" data-label-en="Research interests">
+      <span class="interests-label" data-zh="研究关键词" data-en="RESEARCH INTERESTS">研究关键词</span>
+      <span data-zh="空间智能" data-en="Spatial intelligence">空间智能</span>
+      <span data-zh="三维场景生成" data-en="3D scene generation">三维场景生成</span>
+      <span data-zh="人体动作生成" data-en="Human motion generation">人体动作生成</span>
+      <span data-zh="具身导航" data-en="Embodied navigation">具身导航</span>
+    </div>
+
+    <section class="research-section content-width section" id="research" aria-labelledby="research-title">
+      <div class="section-heading">
+        <div><p class="eyebrow section-kicker">01 / PUBLICATIONS</p><h2 id="research-title" data-zh="论文与研究" data-en="Publications">论文与研究</h2></div>
+        <p class="section-note" data-zh="会议论文与预印本 · 2026" data-en="Conference papers & preprints · 2026">会议论文与预印本 · 2026</p>
+      </div>
+
+      <article class="paper">
+        <a class="paper-visual ego-visual" href="assets/egopathbench-first-page.png" target="_blank" rel="noopener noreferrer" aria-label="查看 EgoPathBench 论文首页大图" data-label-zh="查看 EgoPathBench 论文首页大图" data-label-en="View the full-size first page of EgoPathBench">
+          <div class="paper-image-wrap"><img src="assets/egopathbench-first-page.png" alt="EgoPathBench 论文完整首页" data-label-zh="EgoPathBench 论文完整首页" data-label-en="Complete first page of the EgoPathBench paper" width="900" height="1165" loading="lazy"></div>
+          <div class="image-caption"><span data-zh="论文首页 · 放大" data-en="First page · Zoom">论文首页 · 放大</span><span aria-hidden="true">↗</span></div>
+        </a>
+        <div class="paper-content">
+          <div class="paper-meta"><span class="paper-badge">arXiv 2026</span><span data-zh="具身导航 · 评测基准" data-en="EMBODIED NAVIGATION · BENCHMARK">具身导航 · 评测基准</span></div>
+          <h3><a href="https://egopathbench.github.io/EgoPathBench/" target="_blank" rel="noopener noreferrer">EgoPathBench: Evaluating Zero-Shot Egocentric Waypoint Decision-Making in Vision-Language Models</a></h3>
+          <p class="authors"><strong>Yang Zhao</strong>, Zhuo Chen, Xubo Yang</p>
+          <p class="paper-description" data-zh="从第一视角图像出发，评估视觉语言模型的路径点决策能力，连接目标识别、空间推理与具身约束下的路径规划。" data-en="A benchmark for first-person waypoint decision-making, connecting goal recognition, spatial reasoning, and path planning under embodiment constraints.">从第一视角图像出发，评估视觉语言模型的路径点决策能力，连接目标识别、空间推理与具身约束下的路径规划。</p>
+          <div class="paper-links">
+            <a href="https://egopathbench.github.io/EgoPathBench/" target="_blank" rel="noopener noreferrer"><span data-zh="项目主页" data-en="Project">项目主页</span></a>
+            <a href="https://arxiv.org/abs/2609.16610" target="_blank" rel="noopener noreferrer"><span data-zh="论文" data-en="Paper">论文</span></a>
+            <a href="https://github.com/EgoPathBench/EgoPathBench" target="_blank" rel="noopener noreferrer"><span data-zh="代码" data-en="Code">代码</span></a>
+            <button class="citation-button" data-paper="ego" type="button"><span data-zh="引用" data-en="Cite">引用</span> <span aria-hidden="true">“ ”</span></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <a class="paper-visual scene-visual" href="assets/scenerevis-first-page.png" target="_blank" rel="noopener noreferrer" aria-label="查看 SceneReVis 论文首页大图" data-label-zh="查看 SceneReVis 论文首页大图" data-label-en="View the full-size first page of SceneReVis">
+          <div class="paper-image-wrap"><img src="assets/scenerevis-first-page.png" alt="SceneReVis 会议定稿完整首页" data-label-zh="SceneReVis 会议定稿完整首页" data-label-en="Complete first page of the SceneReVis camera-ready paper" width="900" height="1165" loading="lazy"></div>
+          <div class="image-caption"><span data-zh="论文首页 · 放大" data-en="First page · Zoom">论文首页 · 放大</span><span aria-hidden="true">↗</span></div>
+        </a>
+        <div class="paper-content">
+          <div class="paper-meta"><span class="paper-badge">ACM MM 2026 <strong>Oral</strong></span><span data-zh="三维场景生成 · 强化学习" data-en="3D SCENE GENERATION · REINFORCEMENT LEARNING">三维场景生成 · 强化学习</span></div>
+          <h3><a href="https://scenerevis.github.io/" target="_blank" rel="noopener noreferrer">SceneReVis: A Self-Reflective Vision-Grounded Framework for 3D Indoor Scene Synthesis via Multi-Turn RL</a></h3>
+          <p class="authors"><strong>Yang Zhao</strong>, Shizhao Sun, Meisheng Zhang, Yingdong Shi, Xubo Yang, Jiang Bian</p>
+          <p class="paper-description" data-zh="让模型在生成中观察、反思与修正。通过视觉反馈和多轮强化学习，逐步构建空间布局合理的三维室内场景。" data-en="A vision-grounded framework that observes, reflects, and revises, using multi-turn reinforcement learning to iteratively build coherent 3D indoor scenes.">让模型在生成中观察、反思与修正。通过视觉反馈和多轮强化学习，逐步构建空间布局合理的三维室内场景。</p>
+          <div class="paper-links">
+            <a href="https://scenerevis.github.io/" target="_blank" rel="noopener noreferrer"><span data-zh="项目主页" data-en="Project">项目主页</span></a>
+            <a href="https://arxiv.org/abs/2602.09432" target="_blank" rel="noopener noreferrer"><span data-zh="论文" data-en="Paper">论文</span></a>
+            <a href="papers/scenerevis-acmmm-2026.pdf" target="_blank" rel="noopener noreferrer"><span data-zh="定稿 PDF" data-en="Camera-ready PDF">定稿 PDF</span></a>
+            <a href="https://github.com/Runder-sun/SceneReVis" target="_blank" rel="noopener noreferrer"><span data-zh="代码" data-en="Code">代码</span></a>
+            <button class="citation-button" data-paper="scene" type="button"><span data-zh="引用" data-en="Cite">引用</span> <span aria-hidden="true">“ ”</span></button>
+          </div>
+        </div>
+      </article>
+
+      <article class="paper">
+        <a class="paper-visual" href="assets/ikmo-first-page.png" target="_blank" rel="noopener noreferrer" aria-label="查看 IKMo 论文首页大图" data-label-zh="查看 IKMo 论文首页大图" data-label-en="View the full-size first page of IKMo">
+          <div class="paper-image-wrap"><img src="assets/ikmo-first-page.png" alt="IKMo 会议定稿完整首页" data-label-zh="IKMo 会议定稿完整首页" data-label-en="Complete first page of the IKMo camera-ready paper" width="900" height="1165" loading="lazy"></div>
+          <div class="image-caption"><span data-zh="论文首页 · 放大" data-en="First page · Zoom">论文首页 · 放大</span><span aria-hidden="true">↗</span></div>
+        </a>
+        <div class="paper-content">
+          <div class="paper-meta"><span class="paper-badge">ICME 2026 <strong>Spotlight</strong></span><span data-zh="人体动作生成 · 扩散模型" data-en="HUMAN MOTION GENERATION · DIFFUSION MODELS">人体动作生成 · 扩散模型</span></div>
+          <h3><a href="https://arxiv.org/abs/2505.21146" target="_blank" rel="noopener noreferrer">IKMo: Image-Keyframed Motion Generation with Trajectory-Pose Conditioned Motion Diffusion Model</a></h3>
+          <p class="authors"><strong>Yang Zhao</strong>, Yan Zhang, Zixuan Guo, Hangyu Zhou, Haotian Mao, Hui Wang, Xubo Yang</p>
+          <p class="paper-description" data-zh="结合图像关键帧、文本与轨迹，通过解耦的轨迹和姿态控制生成可控的人体动作。" data-en="Combining image keyframes, text, and trajectories to generate controllable human motion through decoupled trajectory and pose control.">结合图像关键帧、文本与轨迹，通过解耦的轨迹和姿态控制生成可控的人体动作。</p>
+          <div class="paper-links">
+            <a href="https://arxiv.org/abs/2505.21146" target="_blank" rel="noopener noreferrer"><span data-zh="论文" data-en="Paper">论文</span></a>
+            <a href="papers/ikmo-icme-2026.pdf" target="_blank" rel="noopener noreferrer"><span data-zh="定稿 PDF" data-en="Camera-ready PDF">定稿 PDF</span></a>
+            <button class="citation-button" data-paper="ikmo" type="button"><span data-zh="引用" data-en="Cite">引用</span> <span aria-hidden="true">“ ”</span></button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="experience-section section" id="experience" aria-labelledby="experience-title">
+      <div class="content-width experience-layout">
+        <div class="section-heading"><div><p class="eyebrow section-kicker">02 / BACKGROUND</p><h2 id="experience-title" data-zh="学习与经历" data-en="Background">学习与经历</h2><p class="experience-intro" data-zh="教育与实习" data-en="Education & internships">教育与实习</p></div></div>
+        <div class="experience-list">
+          <section class="experience-group" aria-labelledby="education-title">
+            <h3 id="education-title" data-zh="教育经历" data-en="Education">教育经历</h3>
+            <article class="experience-item"><div><h4 data-zh="北京航空航天大学" data-en="Beihang University">北京航空航天大学</h4><p data-zh="沈元学院 · 本科" data-en="Shen Yuan Honors College · Undergraduate studies">沈元学院 · 本科</p><p class="experience-dates">2019 — 2023</p></div><span class="experience-index" aria-hidden="true">01</span></article>
+            <article class="experience-item"><div><h4 data-zh="上海交通大学" data-en="Shanghai Jiao Tong University">上海交通大学</h4><p data-zh="计算机学院 · 直博四年级" data-en="School of Computer Science · Direct-entry Ph.D., year 4">计算机学院 · 直博四年级</p><p class="experience-dates" data-zh="2023 — 2028（预计）" data-en="2023 — 2028 (expected)">2023 — 2028（预计）</p></div><span class="experience-index" aria-hidden="true">02</span></article>
+          </section>
+          <section class="experience-group" aria-labelledby="internship-title">
+            <h3 id="internship-title" data-zh="实习经历" data-en="Internships">实习经历</h3>
+            <article class="experience-item"><div><h4 data-zh="微软亚洲研究院" data-en="Microsoft Research Asia">微软亚洲研究院</h4><p>Microsoft Research Asia · MSRA</p><p class="experience-dates" data-zh="2025.08 — 2026.02" data-en="Aug 2025 — Feb 2026">2025.08 — 2026.02</p></div><span class="experience-index" aria-hidden="true">01</span></article>
+            <article class="experience-item"><div><h4 data-zh="智元机器人" data-en="AGIBOT">智元机器人</h4><p>AGIBOT</p><p class="experience-dates" data-zh="2026.08 — 至今" data-en="Aug 2026 — Present">2026.08 — 至今</p></div><span class="experience-index" aria-hidden="true">02</span></article>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section content-width section" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow section-kicker">03 / GET IN TOUCH</p>
+      <div class="contact-layout"><div><h2 id="contact-title" data-zh="交流与联系" data-en="Let’s connect">交流与联系</h2><p data-zh="欢迎交流研究想法，或探讨潜在的合作。" data-en="Always happy to exchange research ideas and explore potential collaborations.">欢迎交流研究想法，或探讨潜在的合作。</p></div><a class="contact-email" href="mailto:runder1103@sjtu.edu.cn">runder1103@sjtu.edu.cn <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer content-width"><p>© <span id="year">2026</span> Yang Zhao <span class="footer-divider">/</span> <span data-zh="保持好奇，持续探索。" data-en="Stay curious. Keep exploring.">保持好奇，持续探索。</span></p><a href="#about"><span data-zh="回到顶部" data-en="Back to top">回到顶部</span> ↑</a></footer>
+
+  <dialog id="citation-dialog" aria-labelledby="citation-title">
+    <div class="dialog-heading"><div><p class="eyebrow">BIBTEX</p><h2 id="citation-title">引用论文</h2></div><button class="close-dialog" type="button" aria-label="关闭">×</button></div>
+    <pre id="citation-text" tabindex="0"></pre>
+    <div class="dialog-footer"><span id="copy-status" role="status" aria-live="polite"></span><button class="button primary-button copy-citation" type="button" data-zh="复制引用" data-en="Copy citation">复制引用</button></div>
+  </dialog>
+</body>
+</html>
