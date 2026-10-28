@@ -47,6 +47,7 @@ languageButton.addEventListener('click', () => {
   document.querySelector('nav').setAttribute('aria-label', language === 'zh' ? '主导航' : 'Main navigation');
   document.querySelector('.close-dialog').setAttribute('aria-label', language === 'zh' ? '关闭' : 'Close');
   document.title = language === 'zh' ? '赵阳 Yang Zhao · 学术主页' : 'Yang Zhao · Academic Homepage';
+  updateActiveSection();
 });
 
 document.querySelectorAll('.citation-button').forEach(button => {
@@ -92,6 +93,10 @@ function updateActiveSection() {
     if (active) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
+  const activeLink = navLinks.find(link => link.classList.contains('active'));
+  const navigation = activeLink.parentElement;
+  navigation.style.setProperty('--nav-x', `${activeLink.offsetLeft}px`);
+  navigation.style.setProperty('--nav-width', `${activeLink.offsetWidth}px`);
   scrollScheduled = false;
 }
 window.addEventListener('scroll', () => {
@@ -100,5 +105,7 @@ window.addEventListener('scroll', () => {
     scrollScheduled = true;
   }
 }, { passive: true });
+window.addEventListener('resize', updateActiveSection);
+document.fonts.ready.then(updateActiveSection);
 updateActiveSection();
 document.querySelector('#year').textContent = new Date().getFullYear();

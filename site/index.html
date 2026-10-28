@@ -13,9 +13,11 @@
   <title>赵阳 Yang Zhao · 学术主页</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <script src="theme.js?v=20261015"></script>
-  <link rel="stylesheet" href="styles.css?v=education-groups-20261015">
-  <script src="script.js" defer></script>
-  <script src="spatial-scene.js?v=paper-detail-20261015" defer></script>
+  <link rel="stylesheet" href="styles.css?v=living-folio-20261028-2">
+  <noscript><style>#spatial-canvas,.scene-views,.scene-controls,#scene-hint,.scene-disclosure,.language-toggle,.citation-button{display:none}.scene-fallback{display:block;width:100%;height:220px;object-fit:contain}</style></noscript>
+  <script src="script.js?v=living-folio-20261028" defer></script>
+  <script src="motion.js?v=20261028" defer></script>
+  <script src="spatial-scene.js?v=living-folio-20261028" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-zh="跳到主要内容" data-en="Skip to content">跳到主要内容</a>
@@ -28,18 +30,21 @@
         <a href="#experience" data-zh="经历" data-en="Experience">经历</a>
         <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
       </nav>
-      <button class="language-toggle" type="button" aria-label="Switch to English">EN <span aria-hidden="true">↗</span></button>
+      <div class="header-actions">
+        <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="true" aria-controls="main" hidden><span data-zh="动效" data-en="Motion">动效</span><span class="motion-indicator" aria-hidden="true"></span></button>
+        <button class="language-toggle" type="button" aria-label="Switch to English">EN <span aria-hidden="true">↗</span></button>
+      </div>
     </div>
+    <div class="reading-progress" aria-hidden="true"><span></span></div>
   </header>
 
   <main id="main">
     <section class="hero content-width" id="about" aria-labelledby="name">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="profile-mark" aria-hidden="true"></span> <span data-zh="空间智能 · 研究与探索" data-en="SPATIAL INTELLIGENCE · RESEARCH & EXPLORATION">空间智能 · 研究与探索</span></p>
-        <h1 id="name">Yang Zhao<span class="chinese-name">赵阳</span></h1>
+        <p class="eyebrow"><span class="profile-mark" aria-hidden="true"></span> <span data-zh="研究手记 · 空间智能" data-en="RESEARCH FOLIO · SPATIAL INTELLIGENCE">研究手记 · 空间智能</span></p>
+        <h1 id="name"><span class="latin-name">Yang <em>Zhao</em></span><span class="chinese-name">赵阳</span></h1>
         <p class="affiliation" data-zh="上海交通大学计算机学院 · 直博四年级" data-en="Fourth-year Ph.D. student · School of Computer Science, Shanghai Jiao Tong University">上海交通大学计算机学院 · 直博四年级</p>
         <p class="profile-detail"><span data-zh="导师：" data-en="Advisor: ">导师：</span><a href="https://www.cs.sjtu.edu.cn/en/jiaoshiml/yangxubo.html" target="_blank" rel="noopener noreferrer" data-zh="杨旭波" data-en="Xubo Yang">杨旭波</a><span class="profile-separator" aria-hidden="true">·</span><a href="http://dalab.se.sjtu.edu.cn/www/home/" target="_blank" rel="noopener noreferrer" data-zh="数字艺术实验室（DALAB）" data-en="Digital ART Laboratory (DALAB)">数字艺术实验室（DALAB）</a></p>
-        <h2 class="hero-statement" data-zh="研究空间中的\n生成、理解与行动。" data-en="Generation, understanding,\nand action in 3D spaces.">研究空间中的<br>生成、理解与行动。</h2>
         <p class="hero-description" data-zh="我的研究围绕三维场景生成、可控人体动作生成与具身导航展开，探索模型如何构建三维世界、理解空间，并将感知转化为行动。" data-en="My research spans 3D scene generation, controllable human motion, and embodied navigation. I explore how models build 3D worlds, understand space, and translate perception into action.">我的研究围绕三维场景生成、可控人体动作生成与具身导航展开，探索模型如何构建三维世界、理解空间，并将感知转化为行动。</p>
         <div class="hero-links">
           <a class="button primary-button" href="#research"><span data-zh="阅读论文" data-en="Publications">阅读论文</span><span aria-hidden="true">↓</span></a>
@@ -47,21 +52,26 @@
           <a class="text-link" href="mailto:runder1103@sjtu.edu.cn"><span data-zh="邮件联系" data-en="Email">邮件联系</span></a>
         </div>
       </div>
-      <figure class="hero-visual" aria-label="可交互的研究方向概念示意图" data-label-zh="可交互的研究方向概念示意图" data-label-en="Interactive conceptual illustration of my research interests">
+      <button id="scene-disclosure" class="scene-disclosure" type="button" aria-controls="scene-notes" aria-expanded="false"><span data-zh="展开空间手记" data-en="Explore the spatial sketch">展开空间手记</span><span aria-hidden="true">＋</span></button>
+      <figure id="scene-notes" class="hero-visual" aria-label="可交互的研究方向概念示意图" data-label-zh="可交互的研究方向概念示意图" data-label-en="Interactive conceptual illustration of my research interests">
         <div class="figure-top"><span data-zh="研究手记" data-en="RESEARCH NOTES">研究手记</span><span>FIG. 01</span></div>
-        <canvas id="spatial-canvas" width="480" height="360" tabindex="0" aria-describedby="scene-hint" aria-label="可拖动旋转的三维房间与人体路径动画" data-label-zh="可拖动旋转的三维房间与人体路径动画" data-label-en="A draggable 3D room with an animated human following a path"><img src="assets/research-map.svg" alt="房间结构、人体姿态与行动路径组成的研究概念线稿" data-label-zh="房间结构、人体姿态与行动路径组成的研究概念线稿" data-label-en="A conceptual line drawing of a room, a human pose, and an action path" width="480" height="400"></canvas>
-        <div class="scene-controls"><button id="scene-toggle" type="button" aria-pressed="true" data-zh="暂停动画" data-en="Pause">暂停动画</button><button id="scene-reset" type="button" data-zh="重置视角" data-en="Reset view">重置视角</button></div>
+        <div class="scene-views" role="group" aria-label="选择空间视角" data-label-zh="选择空间视角" data-label-en="Choose a spatial view">
+          <button type="button" data-scene-view="scene" aria-pressed="true" data-zh="场景" data-en="Scene">场景</button>
+          <button type="button" data-scene-view="motion" aria-pressed="false" data-zh="动作" data-en="Motion">动作</button>
+          <button type="button" data-scene-view="path" aria-pressed="false" data-zh="导航" data-en="Navigation">导航</button>
+        </div>
+        <canvas id="spatial-canvas" width="480" height="360" tabindex="0" aria-describedby="scene-hint" aria-label="可拖动旋转的三维房间与人体路径动画" data-label-zh="可拖动旋转的三维房间与人体路径动画" data-label-en="A draggable 3D room with an animated human following a path"></canvas>
+        <noscript><img class="scene-fallback" src="assets/research-map.svg" alt="房间结构、人体姿态与行动路径组成的研究概念线稿" width="480" height="400"></noscript>
+        <figcaption class="scene-toolbar"><div class="scene-controls"><button id="scene-toggle" type="button" aria-pressed="true" data-zh="暂停动画" data-en="Pause">暂停动画</button><button id="scene-reset" type="button" data-zh="重置视角" data-en="Reset view">重置视角</button></div><span data-zh="概念示意" data-en="CONCEPT SKETCH">概念示意</span></figcaption>
         <p id="scene-hint" data-zh="拖动旋转 · 方向键调整视角" data-en="Drag to orbit · Arrow keys to rotate">拖动旋转 · 方向键调整视角</p>
-        <figcaption><span data-zh="场景 · 动作 · 导航" data-en="SCENES · MOTION · NAVIGATION">场景 · 动作 · 导航</span><span data-zh="概念示意" data-en="CONCEPT SKETCH">概念示意</span></figcaption>
       </figure>
     </section>
 
-    <div class="research-interests content-width" aria-label="研究方向" data-label-zh="研究方向" data-label-en="Research interests">
-      <span class="interests-label" data-zh="研究关键词" data-en="RESEARCH INTERESTS">研究关键词</span>
-      <span data-zh="空间智能" data-en="Spatial intelligence">空间智能</span>
-      <span data-zh="三维场景生成" data-en="3D scene generation">三维场景生成</span>
-      <span data-zh="人体动作生成" data-en="Human motion generation">人体动作生成</span>
-      <span data-zh="具身导航" data-en="Embodied navigation">具身导航</span>
+    <div class="research-interests content-width" aria-label="研究索引" data-label-zh="研究索引" data-label-en="Research index">
+      <span class="interests-label" data-zh="研究索引" data-en="RESEARCH INDEX">研究索引</span>
+      <a class="index-link" href="#paper-ego"><span class="index-number" aria-hidden="true">01</span><span class="index-topic" data-zh="具身导航" data-en="Embodied navigation">具身导航</span><small>EgoPathBench</small><span class="index-arrow" aria-hidden="true">↘</span></a>
+      <a class="index-link" href="#paper-scene"><span class="index-number" aria-hidden="true">02</span><span class="index-topic" data-zh="场景生成" data-en="Scene generation">场景生成</span><small>SceneReVis</small><span class="index-arrow" aria-hidden="true">↘</span></a>
+      <a class="index-link" href="#paper-ikmo"><span class="index-number" aria-hidden="true">03</span><span class="index-topic" data-zh="人体动作" data-en="Human motion">人体动作</span><small>IKMo</small><span class="index-arrow" aria-hidden="true">↘</span></a>
     </div>
 
     <section class="research-section content-width section" id="research" aria-labelledby="research-title">
@@ -70,7 +80,7 @@
         <p class="section-note" data-zh="会议论文与预印本 · 2026" data-en="Conference papers & preprints · 2026">会议论文与预印本 · 2026</p>
       </div>
 
-      <article class="paper">
+      <article class="paper" id="paper-ego">
         <a class="paper-visual ego-visual" href="assets/egopathbench-first-page.png" target="_blank" rel="noopener noreferrer" aria-label="查看 EgoPathBench 论文首页大图" data-label-zh="查看 EgoPathBench 论文首页大图" data-label-en="View the full-size first page of EgoPathBench">
           <div class="paper-image-wrap"><img src="assets/egopathbench-first-page.png" alt="EgoPathBench 论文完整首页" data-label-zh="EgoPathBench 论文完整首页" data-label-en="Complete first page of the EgoPathBench paper" width="900" height="1165" loading="lazy"></div>
           <div class="image-caption"><span data-zh="论文首页 · 放大" data-en="First page · Zoom">论文首页 · 放大</span><span aria-hidden="true">↗</span></div>
@@ -89,7 +99,7 @@
         </div>
       </article>
 
-      <article class="paper">
+      <article class="paper" id="paper-scene">
         <a class="paper-visual scene-visual" href="assets/scenerevis-first-page.png" target="_blank" rel="noopener noreferrer" aria-label="查看 SceneReVis 论文首页大图" data-label-zh="查看 SceneReVis 论文首页大图" data-label-en="View the full-size first page of SceneReVis">
           <div class="paper-image-wrap"><img src="assets/scenerevis-first-page.png" alt="SceneReVis 会议定稿完整首页" data-label-zh="SceneReVis 会议定稿完整首页" data-label-en="Complete first page of the SceneReVis camera-ready paper" width="900" height="1165" loading="lazy"></div>
           <div class="image-caption"><span data-zh="论文首页 · 放大" data-en="First page · Zoom">论文首页 · 放大</span><span aria-hidden="true">↗</span></div>
@@ -109,7 +119,7 @@
         </div>
       </article>
 
-      <article class="paper">
+      <article class="paper" id="paper-ikmo">
         <a class="paper-visual" href="assets/ikmo-first-page.png" target="_blank" rel="noopener noreferrer" aria-label="查看 IKMo 论文首页大图" data-label-zh="查看 IKMo 论文首页大图" data-label-en="View the full-size first page of IKMo">
           <div class="paper-image-wrap"><img src="assets/ikmo-first-page.png" alt="IKMo 会议定稿完整首页" data-label-zh="IKMo 会议定稿完整首页" data-label-en="Complete first page of the IKMo camera-ready paper" width="900" height="1165" loading="lazy"></div>
           <div class="image-caption"><span data-zh="论文首页 · 放大" data-en="First page · Zoom">论文首页 · 放大</span><span aria-hidden="true">↗</span></div>
