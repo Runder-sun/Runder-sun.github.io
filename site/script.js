@@ -1,4 +1,13 @@
 const citations = {
+  embodiedstudio: `@misc{zhao2026embodiedstudio,
+  title={{EmbodiedStudio}: A Task-Driven Simulation Generation Platform for Embodied Learning and Evaluation},
+  author={Yang Zhao and Xubo Yang},
+  year={2026},
+  eprint={2611.32534},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  url={https://arxiv.org/abs/2611.32534}
+}`,
   ego: `@misc{zhao2026egopathbench,
   title={EgoPathBench: Evaluating Zero-Shot Egocentric Waypoint Decision-Making in Vision-Language Models},
   author={Yang Zhao and Zhuo Chen and Xubo Yang},
@@ -25,16 +34,21 @@ const citations = {
 }`
 };
 
-const paperTitles = { ego: 'EgoPathBench', scene: 'SceneReVis', ikmo: 'IKMo' };
+const paperTitles = { embodiedstudio: 'EmbodiedStudio', ego: 'EgoPathBench', scene: 'SceneReVis', ikmo: 'IKMo' };
 
-let language = 'zh';
+const languagePreferences = [
+  new URLSearchParams(location.search).get('lang'),
+  ...(navigator.languages?.length ? navigator.languages : [navigator.language]),
+];
+let language = languagePreferences
+  .map(tag => tag?.toLowerCase().split('-')[0])
+  .find(value => value === 'zh' || value === 'en') ?? 'en';
 const languageButton = document.querySelector('.language-toggle');
 const dialog = document.querySelector('#citation-dialog');
 const citationText = document.querySelector('#citation-text');
 const copyStatus = document.querySelector('#copy-status');
 
-languageButton.addEventListener('click', () => {
-  language = language === 'zh' ? 'en' : 'zh';
+function applyLanguage() {
   document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
   document.querySelectorAll('[data-zh][data-en]').forEach(element => {
     element.textContent = element.dataset[language].replaceAll('\\n', '\n');
@@ -48,6 +62,18 @@ languageButton.addEventListener('click', () => {
   document.querySelector('.close-dialog').setAttribute('aria-label', language === 'zh' ? '关闭' : 'Close');
   document.title = language === 'zh' ? '赵阳 Yang Zhao · 学术主页' : 'Yang Zhao · Academic Homepage';
   updateActiveSection();
+}
+
+languageButton.addEventListener('click', () => {
+  language = language === 'zh' ? 'en' : 'zh';
+  try {
+    const url = new URL(location.href);
+    url.searchParams.set('lang', language);
+    history.replaceState(null, '', url.href);
+  } catch {
+    /* The language still switches if history changes are unavailable. */
+  }
+  applyLanguage();
 });
 
 document.querySelectorAll('.citation-button').forEach(button => {
@@ -107,5 +133,5 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 window.addEventListener('resize', updateActiveSection);
 document.fonts.ready.then(updateActiveSection);
-updateActiveSection();
+applyLanguage();
 document.querySelector('#year').textContent = new Date().getFullYear();
